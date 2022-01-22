@@ -74,6 +74,9 @@ namespace SPB.Platform.X11
             return PlatformHelper.IsLibraryAvailable(XcbLibraryName);
         }
 
+        [DllImport(LibraryName, EntryPoint = "XGetVisualInfo")]
+        public unsafe static extern X11.XVisualInfo* GetVisualInfo(Display display, long vInfoMask, out X11.XVisualInfo vInfoTemplate, out int nitemsReturn);
+
         [DllImport(XcbLibraryName, EntryPoint = "XGetXCBConnection")]
         public extern static IntPtr GetXCBConnection(Display display);
 
