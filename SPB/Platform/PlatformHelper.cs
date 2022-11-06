@@ -29,7 +29,7 @@ namespace SPB.Platform
 
         internal static void EnsureResolverRegistered()
         {
-            if (!_isResolverRegistered)
+            if (!_isResolverRegistered && typeof(PlatformHelper).Module.Name != "SPB.dll")
             {
                 NativeLibrary.SetDllImportResolver(typeof(PlatformHelper).Assembly, (name, assembly, path) =>
                 {
